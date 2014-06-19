@@ -1,6 +1,10 @@
 #include <fstream>
+#include <vector>
+#include <string>
+
 #include <Windows.h>
-#include "main.h"
+
+#include "main.hpp"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow) {
 
@@ -16,14 +20,27 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
 		std::string line = std::string(lineBuffer);
 
-		if (isObjectReference(line))
-			MessageBox(NULL, line.c_str(), "", MB_OK);
-		else if (isReference(line))
-			MessageBox(NULL, line.c_str(), "", MB_OK);
+		std::vector<std::string> problematicObjectReferences;
+		std::vector<std::string> problematicReferences;
 
+		if (isObjectReference(line))
+			processObjectReference(line, problematicObjectReferences);
+		else if (isReference(line))
+			processReference(line, problematicReferences);
+
+		//TODO: show message box with issues found
+		MessageBox(NULL, "Finished Processing", "", MB_OK);
 	}
 
 	return 0;
+}
+
+void processObjectReference(std::string line, std::vector<std::string> problematicObjectReferences) {
+	//TODO: implement
+}
+
+void processReference(std::string line, std::vector<std::string> problematicReferences) {
+	//TODO: implement
 }
 
 bool isObjectReference(std::string line) {
