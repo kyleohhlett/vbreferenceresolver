@@ -4,6 +4,7 @@
 class KeyViewer {
 private:
 public:
+	bool KeyExists(LPCSTR keyPath); //Example keyPath value: "SOFTWARE\\Classes"
 };
 
 #endif
