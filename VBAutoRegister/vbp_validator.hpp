@@ -1,3 +1,6 @@
+#ifndef _VBP_VALIDATOR_HPP
+#define _VBP_VALIDATOR_HPP
+
 #include <string>
 #include <vector>
 
@@ -19,3 +22,5 @@ public:
 	VbpValidator();
 	void start();
 };
+
+#endif
