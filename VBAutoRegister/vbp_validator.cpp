@@ -29,11 +29,11 @@ void VbpValidator::start() {
 	MessageBox(NULL, "Finished Processing", "VBAutoRegister", MB_OK);
 }
 
-void VbpValidator::processObjectReference(std::string line, std::vector<std::string> problematicObjectReferences) {
+void VbpValidator::processObjectReference(std::string line, std::vector<std::string>& problematicObjectReferences) {
 	//TODO: implement
 }
 
-void VbpValidator::processReference(std::string line, std::vector<std::string> problematicReferences) {
+void VbpValidator::processReference(std::string line, std::vector<std::string>& problematicReferences) {
 	//TODO: implement
 }
 
