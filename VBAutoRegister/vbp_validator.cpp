@@ -3,7 +3,6 @@
 #include <fstream>
 
 VbpValidator::VbpValidator() {
-
 }
 
 void VbpValidator::start() {
@@ -20,7 +19,7 @@ void VbpValidator::start() {
 
 		std::string line = std::string(lineBuffer);
 
-		this->processReference(this->convertLineToReference(line));
+		this->loadReference(this->convertLineToReference(line));
 	}
 
 	//TODO: show message box with issues found
@@ -30,10 +29,12 @@ void VbpValidator::start() {
 }
 
 bool VbpValidator::isObjectReference(std::string line) {
+
 	return strncmp(line.c_str(), "Object=", std::string("Object=").length()) == 0;
 }
 
 bool VbpValidator::isReference(std::string line) {
+
 	return strncmp(line.c_str(), "Reference=", std::string("Reference=").length()) == 0;
 }
 
@@ -53,10 +54,12 @@ void VbpValidator::getVbpFileLocation(LPSTR fileToOpen) {
 }
 
 //TODO: implement
-Reference VbpValidator::convertLineToReference(std::string line) {
-	return Reference();
+Reference VbpValidator::convertLineToReference(std::string lineInVbp) {
+
+	return Reference(lineInVbp);
 }
 
-//TODO: implement
-void VbpValidator::processReference(Reference) {
+void VbpValidator::loadReference(Reference reference) {
+
+	this->references.push_back(reference);
 }

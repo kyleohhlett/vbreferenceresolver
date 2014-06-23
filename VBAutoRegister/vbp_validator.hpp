@@ -11,11 +11,11 @@
 class VbpValidator {
 
 private:
-	std::vector<Reference> problematicReferences;
+	std::vector<Reference> references;
 
 	Reference convertLineToReference(std::string line);
 	void getVbpFileLocation(LPSTR fileToOpen);
-	void processReference(Reference);
+	void loadReference(Reference);
 	bool isObjectReference(std::string line);
 	bool isReference(std::string line);
 

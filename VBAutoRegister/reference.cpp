@@ -1,4 +1,8 @@
+#include <string>
+
 #include "reference.hpp"
 
-Reference::Reference() {
+Reference::Reference(std::string lineInVbp) {
+
+	this->lineInVbp = lineInVbp;
 }

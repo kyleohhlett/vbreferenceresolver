@@ -9,7 +9,7 @@ private:
 
 public:
 
-	ObjectReference();
+	ObjectReference(std::string lineInVbp);
 };
 
 #endif

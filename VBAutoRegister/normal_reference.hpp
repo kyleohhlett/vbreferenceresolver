@@ -11,7 +11,7 @@ private:
 	std::string pathToFile;
 
 public:
-	NormalReference();
+	NormalReference(std::string lineInVbp);
 };
 
 #endif

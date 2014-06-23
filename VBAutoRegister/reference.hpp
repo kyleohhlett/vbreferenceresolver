@@ -13,7 +13,7 @@ private:
 	std::string filename;
 
 public:
-	Reference();
+	Reference(std::string lineInVbp);
 };
 
 #endif
