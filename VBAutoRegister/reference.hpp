@@ -4,10 +4,16 @@
 #include <string>
 
 class Reference {
+
 private:
-	std::string key;
+	std::string lineInVbp;
+	std::string classId;
+	std::string version;
+	std::string subVersion;
 	std::string filename;
+
 public:
+	Reference();
 };
 
 #endif

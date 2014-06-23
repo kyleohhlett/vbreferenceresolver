@@ -2,7 +2,9 @@
 #define _FILE_VIEWER_HPP
 
 class FileViewer {
+
 private:
+
 public:
 };
 

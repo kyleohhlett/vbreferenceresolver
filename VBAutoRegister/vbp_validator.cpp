@@ -20,21 +20,13 @@ void VbpValidator::start() {
 
 		std::string line = std::string(lineBuffer);
 
-		if (isObjectReference(line))
-			this->processObjectReference(line, this->problematicObjectReferences);
-		else if (isReference(line))
-			this->processReference(line, this->problematicReferences);
+		this->processReference(this->convertLineToReference(line));
 	}
+
 	//TODO: show message box with issues found
 	MessageBox(NULL, "Finished Processing", "VBAutoRegister", MB_OK);
-}
 
-void VbpValidator::processObjectReference(std::string line, std::vector<std::string>& problematicObjectReferences) {
-	//TODO: implement
-}
-
-void VbpValidator::processReference(std::string line, std::vector<std::string>& problematicReferences) {
-	//TODO: implement
+	//TODO: print report of issues
 }
 
 bool VbpValidator::isObjectReference(std::string line) {
@@ -58,4 +50,13 @@ void VbpValidator::getVbpFileLocation(LPSTR fileToOpen) {
 	openFilename.lpstrFile = fileToOpen;
 
 	GetOpenFileName(&openFilename);
+}
+
+//TODO: implement
+Reference VbpValidator::convertLineToReference(std::string line) {
+	return Reference();
+}
+
+//TODO: implement
+void VbpValidator::processReference(Reference) {
 }

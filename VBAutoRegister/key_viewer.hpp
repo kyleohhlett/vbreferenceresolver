@@ -1,6 +1,8 @@
 #ifndef _KEY_VIEWER_HPP
 #define _KEY_VIEWER_HPP
 
+#include <Windows.h>
+
 class KeyViewer {
 private:
 public:

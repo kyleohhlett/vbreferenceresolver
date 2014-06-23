@@ -6,20 +6,22 @@
 
 #include <Windows.h>
 
+#include "reference.hpp"
+
 class VbpValidator {
 
 private:
-	std::vector<std::string> problematicObjectReferences;
-	std::vector<std::string> problematicReferences;
+	std::vector<Reference> problematicReferences;
 
-	void processObjectReference(std::string line, std::vector<std::string>& problematicObjectReferences);
-	void processReference(std::string line, std::vector<std::string>& problematicReferences);
+	Reference convertLineToReference(std::string line);
+	void getVbpFileLocation(LPSTR fileToOpen);
+	void processReference(Reference);
 	bool isObjectReference(std::string line);
 	bool isReference(std::string line);
-	void getVbpFileLocation(LPSTR fileToOpen);
 
 public:
 	VbpValidator();
+
 	void start();
 };
 
