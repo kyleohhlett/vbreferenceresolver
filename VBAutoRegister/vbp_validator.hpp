@@ -19,8 +19,6 @@ private:
 	void getVbpFileLocation(LPSTR fileToOpen);
 	void loadReference(Reference reference);
 	void loadReferences(char* fileToOpen);
-	bool isObjectReference(std::string line);
-	bool isReference(std::string line);
 	void processReference(Reference reference);
 	void processReferences();
 

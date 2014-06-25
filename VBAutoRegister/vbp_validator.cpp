@@ -30,18 +30,9 @@ void VbpValidator::loadReferences(char* fileToOpen) {
 
 		std::string line = std::string(lineBuffer);
 
-		this->loadReference(this->convertLineToReference(line));
+		if (Reference::IsReference(line))
+			this->loadReference(this->convertLineToReference(line));
 	}
-}
-
-bool VbpValidator::isObjectReference(std::string line) {
-
-	return strncmp(line.c_str(), "Object=", std::string("Object=").length()) == 0;
-}
-
-bool VbpValidator::isReference(std::string line) {
-
-	return strncmp(line.c_str(), "Reference=", std::string("Reference=").length()) == 0;
 }
 
 void VbpValidator::getVbpFileLocation(LPSTR fileToOpen) {

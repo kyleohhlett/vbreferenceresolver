@@ -12,10 +12,14 @@ private:
 	std::string subVersion;
 	std::string filename;
 	std::string filepath;
-	bool isObjectReference;
+	std::string description;
 
 public:
 	Reference(std::string lineInVbp);
+
+	bool isObjectReference();
+	bool isNormalReference();
+	static bool IsReference(std::string lineInVbp);
 };
 
 #endif
