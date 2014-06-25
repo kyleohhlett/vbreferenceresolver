@@ -14,14 +14,14 @@ Reference::Reference(std::string lineInVbp) {
 	std::getline(vbpLineStringStream, this->classId, '}');
 	std::getline(vbpLineStringStream, buffer, '#'); //advance stream pointer to version info
 	std::getline(vbpLineStringStream, this->version, '#');
-	std::getline(vbpLineStringStream, this->subVersion, ';');
 	
 	if (this->isNormalReference()) {
-		std::getline(vbpLineStringStream, buffer, '#');
+		std::getline(vbpLineStringStream, this->subVersion, '#');
 		std::getline(vbpLineStringStream, this->filepath, '#');
 		std::getline(std::istringstream(this->filepath), this->filepath, '#');
 		std::getline(vbpLineStringStream, this->description);
 	} else if (this->isObjectReference()) {
+		std::getline(vbpLineStringStream, this->subVersion, ';');
 		std::getline(vbpLineStringStream, buffer, ' ');
 		std::getline(vbpLineStringStream, this->filename);
 	}
