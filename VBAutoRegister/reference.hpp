@@ -11,6 +11,8 @@ private:
 	std::string version;
 	std::string subVersion;
 	std::string filename;
+	std::string filepath;
+	bool isObjectReference;
 
 public:
 	Reference(std::string lineInVbp);

@@ -10,6 +10,17 @@ void VbpValidator::start() {
 	char fileToOpen[MAX_PATH] = { 0 };
 	getVbpFileLocation(fileToOpen);
 
+	loadReferences(fileToOpen);
+	processReferences();
+
+	//TODO: show message box with issues found
+	MessageBox(NULL, "Finished Processing", "VBAutoRegister", MB_OK);
+	
+	//TODO: print report of issues
+}
+
+void VbpValidator::loadReferences(char* fileToOpen) {
+
 	std::fstream fileStream;
 	fileStream.open(fileToOpen, std::fstream::in);
 
@@ -21,11 +32,6 @@ void VbpValidator::start() {
 
 		this->loadReference(this->convertLineToReference(line));
 	}
-
-	//TODO: show message box with issues found
-	MessageBox(NULL, "Finished Processing", "VBAutoRegister", MB_OK);
-
-	//TODO: print report of issues
 }
 
 bool VbpValidator::isObjectReference(std::string line) {
@@ -53,7 +59,6 @@ void VbpValidator::getVbpFileLocation(LPSTR fileToOpen) {
 	GetOpenFileName(&openFilename);
 }
 
-//TODO: implement
 Reference VbpValidator::convertLineToReference(std::string lineInVbp) {
 
 	return Reference(lineInVbp);
@@ -62,4 +67,18 @@ Reference VbpValidator::convertLineToReference(std::string lineInVbp) {
 void VbpValidator::loadReference(Reference reference) {
 
 	this->references.push_back(reference);
+}
+
+void VbpValidator::processReferences() {
+
+	for (std::vector<Reference>::iterator currentReference = this->references.begin(); 
+		currentReference != this->references.end(); currentReference++) {
+
+		processReference(*currentReference);
+	}
+}
+
+//TODO: implement
+void VbpValidator::processReference(Reference reference) {
+
 }
