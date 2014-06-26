@@ -4,9 +4,11 @@
 #include <Windows.h>
 
 class KeyViewer {
+
 private:
+
 public:
-	bool KeyExists(LPCSTR keyPath); //Example keyPath value: "SOFTWARE\\Classes"
+	static bool KeyExists(LPCSTR keyPath); //Example keyPath value: "SOFTWARE\\Classes"
 };
 
 #endif
