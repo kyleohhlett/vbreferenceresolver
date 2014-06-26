@@ -43,3 +43,18 @@ bool Reference::IsReference(std::string lineInVbp) {
 	return (strncmp(lineInVbp.c_str(), "Reference=", std::string("Reference=").length()) == 0 || 
 		strncmp(lineInVbp.c_str(), "Object=", std::string("Object=").length()) == 0);
 }
+
+//TODO: implement
+bool Reference::existsInRegistry() {
+
+}
+
+//TODO: implement
+bool Reference::existsOnFileSystem() {
+
+}
+
+//TODO: return in form '\\SOFTWARE\\Classes\\TypeLib\\{7D868ACD-1A5D-4A47-A247-F39741353012}\\1.0\\0\\win32'
+LPCSTR Reference::toString() {
+
+}

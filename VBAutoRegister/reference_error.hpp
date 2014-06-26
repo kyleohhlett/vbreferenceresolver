@@ -4,7 +4,9 @@
 class ReferenceError {
 
 private:
-	ReferenceError();
+	Reference reference = NULL;
+
 public:
+	ReferenceError(Reference reference);
 };
 #endif

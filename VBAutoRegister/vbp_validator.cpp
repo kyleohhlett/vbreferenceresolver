@@ -69,7 +69,10 @@ void VbpValidator::processReferences() {
 	}
 }
 
-//TODO: implement
 void VbpValidator::processReference(Reference reference) {
 
+	if (!reference.existsInRegistry())
+		this->referenceErrors.push_back(ReferenceError(reference));
+
+	//TODO: include filepath checks
 }

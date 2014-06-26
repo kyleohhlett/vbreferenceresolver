@@ -2,6 +2,7 @@
 #define _REFERENCE_HPP
 
 #include <string>
+#include <Windows.h>
 
 class Reference {
 
@@ -19,7 +20,10 @@ public:
 
 	bool isObjectReference();
 	bool isNormalReference();
+	bool existsInRegistry();
+	bool existsOnFileSystem();
 	static bool IsReference(std::string lineInVbp);
+	LPCSTR toString();
 };
 
 #endif
