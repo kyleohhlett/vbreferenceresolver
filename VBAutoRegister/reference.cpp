@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 
+#include "key_viewer.hpp"
 #include "reference.hpp"
 
 Reference::Reference(std::string lineInVbp) {
@@ -44,9 +45,9 @@ bool Reference::IsReference(std::string lineInVbp) {
 		strncmp(lineInVbp.c_str(), "Object=", std::string("Object=").length()) == 0);
 }
 
-//TODO: implement
 bool Reference::existsInRegistry() {
 
+	return KeyViewer::KeyExists(this->toString());
 }
 
 //TODO: implement
