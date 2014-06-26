@@ -1,6 +1,5 @@
 #include "key_viewer.hpp"
 
-#include <string>
 #include <Windows.h>
 
 bool KeyViewer::KeyExists(LPCSTR keyPath) {
