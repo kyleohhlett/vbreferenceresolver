@@ -23,7 +23,7 @@ public:
 	bool existsInRegistry();
 	bool existsOnFileSystem();
 	static bool IsReference(std::string lineInVbp);
-	LPCSTR toString();
+	std::string toString();
 };
 
 #endif

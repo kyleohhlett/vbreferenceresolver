@@ -2,10 +2,10 @@
 
 #include <Windows.h>
 
-bool KeyViewer::KeyExists(LPCSTR keyPath) {
+bool KeyViewer::KeyExists(std::string keyPath) {
 
 	HKEY key;
-	LONG returnValue = RegOpenKey(HKEY_LOCAL_MACHINE, keyPath, &key);
+	LONG returnValue = RegOpenKey(HKEY_LOCAL_MACHINE, keyPath.c_str(), &key);
 
 	return returnValue == ERROR_SUCCESS;
 }

@@ -47,15 +47,25 @@ bool Reference::IsReference(std::string lineInVbp) {
 
 bool Reference::existsInRegistry() {
 
-	return KeyViewer::KeyExists(this->toString());
+	return KeyViewer::KeyExists(this->toString().c_str());
 }
 
 //TODO: implement
 bool Reference::existsOnFileSystem() {
 
+	return false;
 }
 
-//TODO: return in form '\\SOFTWARE\\Classes\\TypeLib\\{7D868ACD-1A5D-4A47-A247-F39741353012}\\1.0\\0\\win32'
-LPCSTR Reference::toString() {
+//TODO: returns form 'SOFTWARE\\Classes\\TypeLib\\{7D868ACD-1A5D-4A47-A247-F39741353012}\\1.0\\0\\win32'
+std::string Reference::toString() {
+	
+	std::string registryPath = std::string("SOFTWARE\\Classes\\TypeLib\\{");
+	registryPath.append(this->classId);
+	registryPath.append("}\\");
+	registryPath.append(this->version);
+	registryPath.append("\\");
+	registryPath.append(this->subVersion);
+	registryPath.append("\\win32");
 
+	return registryPath;
 }
