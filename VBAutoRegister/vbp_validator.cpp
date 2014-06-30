@@ -7,6 +7,8 @@ VbpValidator::VbpValidator() {
 
 void VbpValidator::start() {
 
+	MessageBox(NULL, "Select a .vbp file to check for registry errors", "VBAutoRegister", MB_OK);
+
 	char fileToOpen[MAX_PATH] = { 0 };
 	getVbpFileLocation(fileToOpen);
 

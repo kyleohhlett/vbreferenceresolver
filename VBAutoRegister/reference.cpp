@@ -17,7 +17,7 @@ Reference::Reference(std::string lineInVbp) {
 
 	std::getline(vbpLineStringStream, buffer, '{');
 	std::getline(vbpLineStringStream, this->classId, '}');
-	std::getline(vbpLineStringStream, buffer, '#'); //advance stream pointer to version info
+	std::getline(vbpLineStringStream, buffer, '#');
 	std::getline(vbpLineStringStream, this->version, '#');
 	
 	if (this->isNormalReference()) {
@@ -69,7 +69,6 @@ bool Reference::existsOnFileSystem() {
 	return false;
 }
 
-//TODO: returns form 'SOFTWARE\\Classes\\TypeLib\\{7D868ACD-1A5D-4A47-A247-F39741353012}\\1.0\\0\\win32'
 std::string Reference::toString() {
 	
 	std::string registryPath = std::string("SOFTWARE\\Classes\\TypeLib\\{");
