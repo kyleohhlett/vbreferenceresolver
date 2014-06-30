@@ -4,6 +4,10 @@
 #include "key_viewer.hpp"
 #include "reference.hpp"
 
+Reference::Reference() {
+
+}
+
 Reference::Reference(std::string lineInVbp) {
 
 	this->lineInVbp = lineInVbp;
@@ -26,7 +30,16 @@ Reference::Reference(std::string lineInVbp) {
 		std::getline(vbpLineStringStream, buffer, ' ');
 		std::getline(vbpLineStringStream, this->filename);
 	}
-		
+}
+
+std::string Reference::getFilename() {
+
+	return this->filename;
+}
+
+std::string Reference::getFilepath() {
+
+	return this->filepath;
 }
 
 bool Reference::isObjectReference() {

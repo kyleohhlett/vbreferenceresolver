@@ -16,6 +16,7 @@ private:
 	std::vector<ReferenceError> referenceErrors;
 
 	Reference convertLineToReference(std::string line);
+	std::string generateReportString();
 	void getVbpFileLocation(LPSTR fileToOpen);
 	void loadReference(Reference reference);
 	void loadReferences(char* fileToOpen);

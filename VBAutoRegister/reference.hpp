@@ -17,11 +17,14 @@ private:
 
 public:
 	Reference(std::string lineInVbp);
+	Reference();
 
 	bool isObjectReference();
 	bool isNormalReference();
 	bool existsInRegistry();
 	bool existsOnFileSystem();
+	std::string getFilename();
+	std::string getFilepath();
 	static bool IsReference(std::string lineInVbp);
 	std::string toString();
 };

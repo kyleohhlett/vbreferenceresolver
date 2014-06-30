@@ -13,10 +13,35 @@ void VbpValidator::start() {
 	loadReferences(fileToOpen);
 	processReferences();
 
-	//TODO: show message box with issues found
-	MessageBox(NULL, "Finished Processing", "VBAutoRegister", MB_OK);
-	
-	//TODO: print report of issues
+	std::string reportString = this->generateReportString();
+
+	MessageBox(NULL, reportString.c_str(), "VBAutoRegister", MB_OK);
+}
+
+std::string VbpValidator::generateReportString() {
+
+	std::string reportString;
+
+	if (this->referenceErrors.size() < 1) {
+
+		reportString = std::string("No reference issues found.");
+	} else {
+		for (std::vector<ReferenceError>::iterator currentReference = this->referenceErrors.begin();
+			currentReference != this->referenceErrors.end(); ++currentReference) {
+
+			if (currentReference->getReference().isNormalReference()) {
+
+				reportString.append(currentReference->getReference().getFilepath());
+				reportString.append("\n");
+			} else if(currentReference->getReference().isObjectReference()) {
+
+				reportString.append(currentReference->getReference().getFilename());
+				reportString.append("\n");
+			}
+		}
+	}
+
+	return reportString;
 }
 
 void VbpValidator::loadReferences(char* fileToOpen) {
@@ -33,6 +58,8 @@ void VbpValidator::loadReferences(char* fileToOpen) {
 		if (Reference::IsReference(line))
 			this->loadReference(this->convertLineToReference(line));
 	}
+
+	fileStream.close();
 }
 
 void VbpValidator::getVbpFileLocation(LPSTR fileToOpen) {
@@ -63,7 +90,7 @@ void VbpValidator::loadReference(Reference reference) {
 void VbpValidator::processReferences() {
 
 	for (std::vector<Reference>::iterator currentReference = this->references.begin(); 
-		currentReference != this->references.end(); currentReference++) {
+		currentReference != this->references.end(); ++currentReference) {
 
 		processReference(*currentReference);
 	}
@@ -71,8 +98,11 @@ void VbpValidator::processReferences() {
 
 void VbpValidator::processReference(Reference reference) {
 
-	if (!reference.existsInRegistry())
-		this->referenceErrors.push_back(ReferenceError(reference));
+	if (!reference.existsInRegistry()) {
+
+		ReferenceError referenceError = ReferenceError(reference);
+		this->referenceErrors.push_back(referenceError);
+	}
 
 	//TODO: include filepath checks
 }
